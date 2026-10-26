@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Version de travail : retirer cette balise lors de la mise en production -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B1220">
+<title>Transports SNLL — Transport de personnes, médical et scolaire · Cergy</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<title>Transports SNLL — Transport de personnes, médical et scolaire · Cergy</title>
 <meta name="description" content="Transports SNLL : transport de personnes (VTC, navettes), transport médical et TPMR, transport scolaire. Réservation en ligne, dispatch et suivi des courses. Basés à Cergy (95).">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Transports SNLL">
+<meta property="og:title" content="Transports SNLL — Chaque trajet, maîtrisé.">
+<meta property="og:description" content="Trajets privés et navettes, transport médical et TPMR, transport scolaire. Basés à Cergy (95).">
+<meta property="og:image" content="assets/hero.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -22,31 +32,50 @@ a:hover{color:#E9A43B}
 input,select,textarea,button{font-family:inherit}
 @keyframes snllRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @keyframes snllLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+:focus-visible{outline:2px solid #E9A43B;outline-offset:3px}
+.snll-skip{position:absolute;left:-9999px;top:12px;z-index:100;background:#E9A43B;color:#0B1220;padding:12px 16px;font-weight:700;border-radius:2px}
+.snll-skip:focus{left:16px;color:#0B1220}
+.snll-burger{display:none}
+.snll-draft{position:fixed;left:16px;bottom:16px;z-index:30;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;background:rgba(7,12,22,0.92);color:#E9A43B;border:1px solid rgba(233,164,59,0.45);padding:8px 12px;border-radius:2px;pointer-events:none}
+@media (max-width:960px){
+  .snll-head{padding-top:12px !important;padding-bottom:12px !important;gap:12px !important}
+  .snll-burger{display:inline-flex;order:1}
+  .snll-nav{display:none !important;order:2;width:100%;flex-direction:column;align-items:stretch !important;gap:0 !important;padding-top:8px}
+  .snll-nav a{padding:14px 0 !important;font-size:18px !important;border-bottom:1px solid rgba(255,255,255,0.08) !important}
+  .snll-cta{display:none !important;order:3;width:100%;padding-bottom:8px}
+  .snll-cta a{flex:1;text-align:center}
+  .snll-open .snll-nav,.snll-open .snll-cta{display:flex !important}
+  .snll-mail{display:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
 </style>
 </helmet>
 
 <div style="min-height:100vh;display:flex;flex-direction:column;background:#0B1220">
+<a href="#contenu" class="snll-skip" onClick="{{ skip }}">Aller au contenu</a>
+<div class="snll-draft" aria-hidden="true">Maquette · version de travail</div>
 
-<div style="background:#070C16;border-bottom:1px solid rgba(255,255,255,0.06)"><div style="max-width:1360px;margin:0 auto;padding:9px clamp(20px,4vw,48px);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.06em;color:#A9B1C2"><span style="display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;border-radius:50%;background:#4CC38A;display:block"></span>Réservations 24h/24 · 7j/7</span><div style="display:flex;gap:24px;flex-wrap:wrap"><a href="tel:+33134254890" style="color:#F5F3EE">01 34 25 48 90</a><a href="mailto:contact@transports-snll.fr" style="color:#A9B1C2">contact@transports-snll.fr</a></div></div></div>
+<div style="background:#070C16;border-bottom:1px solid rgba(255,255,255,0.06)"><div style="max-width:1360px;margin:0 auto;padding:9px clamp(20px,4vw,48px);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.06em;color:#A9B1C2"><span style="display:flex;align-items:center;gap:10px"><span style="width:7px;height:7px;border-radius:50%;background:#4CC38A;display:block"></span>Réservations 24h/24 · 7j/7</span><div style="display:flex;gap:24px;flex-wrap:wrap"><a href="tel:+33134254890" style="color:#F5F3EE">01 34 25 48 90</a><a href="mailto:contact@transports-snll.fr" class="snll-mail" style="color:#A9B1C2">contact@transports-snll.fr</a></div></div></div>
 <header style="position:sticky;top:0;z-index:20;background:rgba(11,18,32,0.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.08)">
-  <div style="max-width:1360px;margin:0 auto;padding:16px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+  <div class="snll-head {{ menuCls }}" style="max-width:1360px;margin:0 auto;padding:16px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
     <a href="#/accueil" style="display:flex;align-items:baseline;gap:10px;color:#F5F3EE" aria-label="Transports SNLL — accueil">
       <span style="font-weight:900;font-stretch:72%;font-size:30px;letter-spacing:-0.01em;line-height:1">SNLL</span>
       <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#E9A43B">Transports</span>
     </a>
-    <nav aria-label="Navigation principale" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,32px);flex-wrap:wrap">
+    <button type="button" class="snll-burger" onClick="{{ toggleMenu }}" aria-expanded="{{ menuExpanded }}" aria-controls="snll-menu" style="align-items:center;gap:10px;background:transparent;color:#F5F3EE;border:1px solid rgba(255,255,255,0.22);border-radius:2px;padding:10px 14px;font-size:14px;font-weight:600;cursor:pointer"><span aria-hidden="true" style="font-size:18px;line-height:1">{{ menuIcon }}</span>Menu</button>
+    <nav id="snll-menu" class="snll-nav" aria-label="Navigation principale" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,32px);flex-wrap:wrap">
       <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
-        <a href="{{ n.href }}" style="font-size:15px;font-weight:500;color:{{ n.color }};padding:6px 0;border-bottom:1px solid {{ n.line }}">{{ n.label }}</a>
+        <a href="{{ n.href }}" aria-current="{{ n.current }}" style="font-size:15px;font-weight:500;color:{{ n.color }};padding:6px 0;border-bottom:1px solid {{ n.line }}">{{ n.label }}</a>
       </sc-for>
     </nav>
-    <div style="display:flex;align-items:center;gap:12px">
+    <div class="snll-cta" style="display:flex;align-items:center;gap:12px">
       <a href="#/espace-client" style="font-size:14px;font-weight:500;color:#F5F3EE;padding:11px 16px;border:1px solid rgba(255,255,255,0.22);border-radius:2px;white-space:nowrap">Espace client</a>
       <a href="#/reserver" style="font-size:14px;font-weight:700;color:#0B1220;background:#E9A43B;padding:12px 18px;border-radius:2px;white-space:nowrap" style-hover="background:#F5F3EE;color:#0B1220">Réserver une course</a>
     </div>
   </div>
 </header>
 
-<main style="flex:1">
+<main id="contenu" tabindex="-1" style="flex:1;outline:none">
 
 <sc-if value="{{ p.accueil }}" hint-placeholder-val="{{ true }}">
   <section style="position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,0.08)">
@@ -661,7 +690,7 @@ input,select,textarea,button{font-family:inherit}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;heroWidget&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Accueil&quot;},&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;accueil&quot;,&quot;options&quot;:[&quot;accueil&quot;,&quot;services&quot;,&quot;reserver&quot;,&quot;a-propos&quot;,&quot;recrutement&quot;,&quot;contact&quot;,&quot;espace-client&quot;,&quot;mentions-legales&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Navigation&quot;}}">
 class Component extends DCLogic {
-  state = { page: 'accueil', prefill: {}, sent: {}, err: {}, faqOpen: 0, logged: false };
+  state = { page: 'accueil', prefill: {}, sent: {}, err: {}, faqOpen: 0, logged: false, menuOpen: false };
 
   readPage() {
     const h = (window.location.hash || '').replace(/^#\/?/, '');
@@ -669,9 +698,17 @@ class Component extends DCLogic {
     return ok.includes(h) ? h : (this.props && ok.includes(this.props.startPage) ? this.props.startPage : 'accueil');
   }
   componentDidMount() {
-    this.onHash = () => { this.setState({ page: this.readPage(), err: {} }); window.scrollTo({ top: 0 }); };
+    this.onHash = () => {
+      const pg = this.readPage();
+      this.setState({ page: pg, err: {}, menuOpen: false }); this.setTitle(pg); window.scrollTo({ top: 0 });
+    };
     window.addEventListener('hashchange', this.onHash);
     const pg = this.readPage(); if (pg !== this.state.page) this.setState({ page: pg });
+    this.setTitle(pg);
+  }
+  setTitle(pg) {
+    const t = { services: 'Nos services', reserver: 'Réserver une course', 'a-propos': 'À propos', recrutement: 'Recrutement', contact: 'Contact', 'espace-client': 'Espace client', 'mentions-legales': 'Mentions légales' }[pg];
+    document.title = t ? t + ' — Transports SNLL' : 'Transports SNLL — Transport de personnes, médical et scolaire · Cergy';
   }
   componentDidUpdate(prev) {
     const sp = this.props.startPage;
@@ -705,7 +742,12 @@ class Component extends DCLogic {
     const { sent, err, prefill } = this.state;
     return {
       p: { accueil: page === 'accueil', services: page === 'services', reserver: page === 'reserver', apropos: page === 'a-propos', recrutement: page === 'recrutement', contact: page === 'contact', espace: page === 'espace-client', legal: page === 'mentions-legales' },
-      navItems: nav.map(([id, label]) => ({ href: '#/' + id, label, color: page === id ? '#E9A43B' : '#F5F3EE', line: page === id ? '#E9A43B' : 'transparent' })),
+      menuCls: this.state.menuOpen ? 'snll-open' : '',
+      menuExpanded: this.state.menuOpen ? 'true' : 'false',
+      menuIcon: this.state.menuOpen ? '✕' : '☰',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      skip: e => { e.preventDefault(); const m = document.getElementById('contenu'); if (m) m.focus(); },
+      navItems: nav.map(([id, label]) => ({ href: '#/' + id, label, current: page === id ? 'page' : 'false', color: page === id ? '#E9A43B' : '#F5F3EE', line: page === id ? '#E9A43B' : 'transparent' })),
       heroWidget: this.props.heroWidget ?? true,
       today, year: new Date().getFullYear(), sent, err,
       prefill: { service: prefill.service || 'vtc', from: prefill.from || '', to: prefill.to || '', date: prefill.date || '', time: prefill.time || '' },

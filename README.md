@@ -13,7 +13,12 @@ npx serve .
 ```
 Puis ouvrir http://localhost:3000
 
+## Version de travail (GitHub Pages)
+Le site est publié automatiquement sur https://saturne-pro.github.io/site-internet-snll/
+à chaque push (workflow `.github/workflows/pages.yml`).
+
 ## Avant mise en production
+- Retirer la balise `<meta name="robots" content="noindex, nofollow">` et le badge « Maquette · version de travail » (`.snll-draft`)
 - Remplacer les données de démonstration (téléphone, e-mail, chiffres, témoignages, tarifs, équipe)
 - Brancher les formulaires sur une API sécurisée (HTTPS, CSRF, rate limiting, validation serveur)
 - Configurer les en-têtes de sécurité (CSP, HSTS, X-Content-Type-Options, Referrer-Policy)
